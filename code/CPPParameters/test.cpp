@@ -22,7 +22,7 @@ using namespace GAFW::Tools::CPPParameters;
 /*
  * 
  */
-int main(int argc, char** argv) {
+int main_deavctive(int argc, char** argv) {
 
         
     

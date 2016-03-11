@@ -49,6 +49,7 @@
       <flagsDictionary>
         <element flagsID="0"
                  commonFlags="-mtune=generic -march=x86-64 -std=c++11 -fPIC -fstack-protector"/>
+        <element flagsID="1" commonFlags="-std=c++11 -fPIC"/>
       </flagsDictionary>
       <codeAssistance>
       </codeAssistance>
@@ -76,84 +77,12 @@
             flavor2="4">
       </item>
       <item path="code/CPPParameters/CPPParams.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>/usr/include/boost/exception</pElem>
-            <pElem>/usr/include/boost</pElem>
-            <pElem>/usr/include/boost/smart_ptr/detail</pElem>
-            <pElem>/usr/include/boost/regex/v4</pElem>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>/usr/include/boost/smart_ptr</pElem>
-            <pElem>/usr/include/boost/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
-            <pElem>/usr/include/boost/mpl</pElem>
-            <pElem>/usr/include/boost/type_traits/detail</pElem>
-            <pElem>/usr/include/boost/type_traits</pElem>
-            <pElem>/usr/include/boost/detail</pElem>
-            <pElem>/usr/include/boost/integer</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail</pElem>
-            <pElem>/usr/include/boost/numeric/conversion</pElem>
-            <pElem>/usr/include/boost/math/tools</pElem>
-            <pElem>/usr/include/boost/math/policies</pElem>
-            <pElem>/usr/include/boost/iterator/detail</pElem>
-            <pElem>/usr/include/boost/range</pElem>
-            <pElem>/usr/include/boost/range/detail</pElem>
-            <pElem>/usr/include/boost/concept/detail</pElem>
-            <pElem>/usr/include/boost/container</pElem>
-            <pElem>/usr/include/boost/iterator</pElem>
-            <pElem>/usr/include/boost/regex/pending</pElem>
-            <pElem>/usr/include/boost/regex</pElem>
-            <pElem>/usr/include/boost/functional/hash/detail</pElem>
-            <pElem>/usr/include/boost/config/compiler</pElem>
-            <pElem>/usr/include/boost/config/no_tr1</pElem>
-            <pElem>/usr/include/boost/config/stdlib</pElem>
-            <pElem>/usr/include/boost/config/platform</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
-            <pElem>/usr/include/boost/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
-            <pElem>/usr/include/boost/preprocessor/control</pElem>
-            <pElem>/usr/include/boost/preprocessor/logical</pElem>
-            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
-            <pElem>/usr/include/boost/preprocessor/debug</pElem>
-            <pElem>/usr/include/boost/preprocessor/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
-            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
-            <pElem>/usr/include/boost/mpl/limits</pElem>
-            <pElem>/usr/include/boost/preprocessor/list</pElem>
-            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
-            <pElem>/usr/include/boost/exception/detail</pElem>
-            <pElem>/usr/include/boost/utility</pElem>
-            <pElem>/usr/include/boost/functional</pElem>
-            <pElem>/usr/include/boost/functional/hash</pElem>
-            <pElem>/usr/include/boost/preprocessor/array</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail/preprocessed</pElem>
-            <pElem>/usr/include/boost/math/special_functions</pElem>
-            <pElem>/usr/include/boost/math/special_functions/detail</pElem>
-            <pElem>/usr/include/boost/mpl/list</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_/preprocessed/plain</pElem>
-            <pElem>/usr/include/boost/mpl/vector</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based</pElem>
-            <pElem>/usr/include/boost/range/algorithm</pElem>
-            <pElem>/usr/include/boost/concept</pElem>
-            <pElem>/usr/include/boost/preprocessor/seq</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition/detail</pElem>
-            <pElem>/usr/include/boost/regex/config</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
+        <ccTool flags="1">
         </ccTool>
       </item>
       <item path="code/CPPParameters/Parameter.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
-            <pElem>code/CPPParameters</pElem>
             <pElem>/usr/include/boost</pElem>
             <pElem>/usr/include/boost/config</pElem>
             <pElem>/usr/include/boost/mpl/aux_</pElem>
@@ -213,223 +142,6 @@
             <pElem>/usr/include/boost/concept</pElem>
             <pElem>/usr/include/boost/preprocessor/seq</pElem>
             <pElem>/usr/include/boost/preprocessor/repetition/detail</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="code/CPPParameters/ParameterName.cpp"
-            ex="false"
-            tool="1"
-            flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>/usr/include/boost/smart_ptr/detail</pElem>
-            <pElem>/usr/include/boost/regex/v4</pElem>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>/usr/include/boost/smart_ptr</pElem>
-            <pElem>/usr/include/boost</pElem>
-            <pElem>/usr/include/boost/config</pElem>
-            <pElem>/usr/include/boost/exception</pElem>
-            <pElem>/usr/include/boost/detail</pElem>
-            <pElem>/usr/include/boost/integer</pElem>
-            <pElem>/usr/include/boost/mpl/aux_</pElem>
-            <pElem>/usr/include/boost/mpl</pElem>
-            <pElem>/usr/include/boost/regex/pending</pElem>
-            <pElem>/usr/include/boost/regex</pElem>
-            <pElem>/usr/include/boost/functional/hash/detail</pElem>
-            <pElem>/usr/include/boost/type_traits/detail</pElem>
-            <pElem>/usr/include/boost/config/compiler</pElem>
-            <pElem>/usr/include/boost/config/no_tr1</pElem>
-            <pElem>/usr/include/boost/config/stdlib</pElem>
-            <pElem>/usr/include/boost/config/platform</pElem>
-            <pElem>/usr/include/boost/regex/config</pElem>
-            <pElem>/usr/include/boost/exception/detail</pElem>
-            <pElem>/usr/include/boost/utility</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
-            <pElem>/usr/include/boost/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
-            <pElem>/usr/include/boost/preprocessor/control</pElem>
-            <pElem>/usr/include/boost/preprocessor/logical</pElem>
-            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
-            <pElem>/usr/include/boost/preprocessor/debug</pElem>
-            <pElem>/usr/include/boost/preprocessor/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
-            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
-            <pElem>/usr/include/boost/mpl/limits</pElem>
-            <pElem>/usr/include/boost/preprocessor/list</pElem>
-            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
-            <pElem>/usr/include/boost/preprocessor/array</pElem>
-            <pElem>/usr/include/boost/type_traits</pElem>
-            <pElem>/usr/include/boost/functional</pElem>
-            <pElem>/usr/include/boost/functional/hash</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="code/CPPParameters/ParameterRegistry.cpp"
-            ex="false"
-            tool="1"
-            flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="code/CPPParameters/SimpleValue.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>/usr/include/boost/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_</pElem>
-            <pElem>/usr/include/boost/mpl</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
-            <pElem>/usr/include/boost/exception</pElem>
-            <pElem>/usr/include/boost/type_traits/detail</pElem>
-            <pElem>/usr/include/boost</pElem>
-            <pElem>/usr/include/boost/detail</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail</pElem>
-            <pElem>/usr/include/boost/numeric/conversion</pElem>
-            <pElem>/usr/include/boost/math/tools</pElem>
-            <pElem>/usr/include/boost/math/policies</pElem>
-            <pElem>/usr/include/boost/iterator/detail</pElem>
-            <pElem>/usr/include/boost/range</pElem>
-            <pElem>/usr/include/boost/range/detail</pElem>
-            <pElem>/usr/include/boost/concept/detail</pElem>
-            <pElem>/usr/include/boost/container</pElem>
-            <pElem>/usr/include/boost/config/compiler</pElem>
-            <pElem>/usr/include/boost/config/no_tr1</pElem>
-            <pElem>/usr/include/boost/config/stdlib</pElem>
-            <pElem>/usr/include/boost/config/platform</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
-            <pElem>/usr/include/boost/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
-            <pElem>/usr/include/boost/preprocessor/control</pElem>
-            <pElem>/usr/include/boost/preprocessor/logical</pElem>
-            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
-            <pElem>/usr/include/boost/preprocessor/debug</pElem>
-            <pElem>/usr/include/boost/preprocessor/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
-            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
-            <pElem>/usr/include/boost/mpl/limits</pElem>
-            <pElem>/usr/include/boost/preprocessor/list</pElem>
-            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
-            <pElem>/usr/include/boost/exception/detail</pElem>
-            <pElem>/usr/include/boost/type_traits</pElem>
-            <pElem>/usr/include/boost/utility</pElem>
-            <pElem>/usr/include/boost/functional</pElem>
-            <pElem>/usr/include/boost/functional/hash</pElem>
-            <pElem>/usr/include/boost/preprocessor/array</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail/preprocessed</pElem>
-            <pElem>/usr/include/boost/math/special_functions</pElem>
-            <pElem>/usr/include/boost/math/special_functions/detail</pElem>
-            <pElem>/usr/include/boost/mpl/list</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_/preprocessed/plain</pElem>
-            <pElem>/usr/include/boost/mpl/vector</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based</pElem>
-            <pElem>/usr/include/boost/iterator</pElem>
-            <pElem>/usr/include/boost/range/algorithm</pElem>
-            <pElem>/usr/include/boost/concept</pElem>
-            <pElem>/usr/include/boost/preprocessor/seq</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition/detail</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="code/CPPParameters/test.cpp" ex="false" tool="1" flavor2="8">
-        <ccTool flags="0">
-          <incDir>
-            <pElem>/usr/include/boost/exception</pElem>
-            <pElem>/usr/include/boost</pElem>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>/usr/include/boost/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
-            <pElem>/usr/include/boost/mpl</pElem>
-            <pElem>/usr/include/boost/type_traits/detail</pElem>
-            <pElem>/usr/include/boost/type_traits</pElem>
-            <pElem>/usr/include/boost/detail</pElem>
-            <pElem>/usr/include/boost/integer</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail</pElem>
-            <pElem>/usr/include/boost/numeric/conversion</pElem>
-            <pElem>/usr/include/boost/math/tools</pElem>
-            <pElem>/usr/include/boost/math/policies</pElem>
-            <pElem>/usr/include/boost/iterator/detail</pElem>
-            <pElem>/usr/include/boost/range</pElem>
-            <pElem>/usr/include/boost/range/detail</pElem>
-            <pElem>/usr/include/boost/concept/detail</pElem>
-            <pElem>/usr/include/boost/container</pElem>
-            <pElem>/usr/include/boost/iterator</pElem>
-            <pElem>/usr/include/boost/regex/v4</pElem>
-            <pElem>/usr/include/boost/regex</pElem>
-            <pElem>/usr/include/boost/functional/hash/detail</pElem>
-            <pElem>/usr/include/boost/config/compiler</pElem>
-            <pElem>/usr/include/boost/config/no_tr1</pElem>
-            <pElem>/usr/include/boost/config/stdlib</pElem>
-            <pElem>/usr/include/boost/config/platform</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
-            <pElem>/usr/include/boost/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/config</pElem>
-            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
-            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
-            <pElem>/usr/include/boost/preprocessor/control</pElem>
-            <pElem>/usr/include/boost/preprocessor/logical</pElem>
-            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
-            <pElem>/usr/include/boost/preprocessor/debug</pElem>
-            <pElem>/usr/include/boost/preprocessor/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
-            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
-            <pElem>/usr/include/boost/mpl/limits</pElem>
-            <pElem>/usr/include/boost/preprocessor/list</pElem>
-            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
-            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
-            <pElem>/usr/include/boost/exception/detail</pElem>
-            <pElem>/usr/include/boost/utility</pElem>
-            <pElem>/usr/include/boost/functional</pElem>
-            <pElem>/usr/include/boost/functional/hash</pElem>
-            <pElem>/usr/include/boost/preprocessor/array</pElem>
-            <pElem>/usr/include/boost/numeric/conversion/detail/preprocessed</pElem>
-            <pElem>/usr/include/boost/math/special_functions</pElem>
-            <pElem>/usr/include/boost/math/special_functions/detail</pElem>
-            <pElem>/usr/include/boost/mpl/list</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/list/aux_/preprocessed/plain</pElem>
-            <pElem>/usr/include/boost/mpl/vector</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_</pElem>
-            <pElem>/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based</pElem>
-            <pElem>/usr/include/boost/range/algorithm</pElem>
-            <pElem>/usr/include/boost/concept</pElem>
-            <pElem>/usr/include/boost/preprocessor/seq</pElem>
-            <pElem>/usr/include/boost/preprocessor/repetition/detail</pElem>
-            <pElem>/usr/include/boost/regex/config</pElem>
-            <pElem>/usr/include/boost/smart_ptr</pElem>
-            <pElem>/usr/include/boost/smart_ptr/detail</pElem>
-            <pElem>/usr/include/boost/regex/pending</pElem>
-            <pElem>build/code</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <folder path="0/code">
-        <ccTool>
-          <incDir>
-            <pElem>code/CPPParameters</pElem>
-            <pElem>build/code</pElem>
           </incDir>
           <preprocessorList>
             <Elem>__GNUC_STDC_INLINE__=1</Elem>
@@ -441,6 +153,168 @@
             <Elem>__cplusplus=201103L</Elem>
             <Elem>__pic__=2</Elem>
             <Elem>gafw_tools_EXPORTS=1</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="code/CPPParameters/ParameterName.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>/usr/include/boost/smart_ptr/detail</pElem>
+            <pElem>/usr/include/boost/regex/v4</pElem>
+            <pElem>/usr/include/boost/smart_ptr</pElem>
+            <pElem>/usr/include/boost</pElem>
+            <pElem>/usr/include/boost/config</pElem>
+            <pElem>/usr/include/boost/exception</pElem>
+            <pElem>/usr/include/boost/detail</pElem>
+            <pElem>/usr/include/boost/integer</pElem>
+            <pElem>/usr/include/boost/mpl/aux_</pElem>
+            <pElem>/usr/include/boost/mpl</pElem>
+            <pElem>/usr/include/boost/regex/pending</pElem>
+            <pElem>/usr/include/boost/regex</pElem>
+            <pElem>/usr/include/boost/functional/hash/detail</pElem>
+            <pElem>/usr/include/boost/type_traits/detail</pElem>
+            <pElem>/usr/include/boost/config/compiler</pElem>
+            <pElem>/usr/include/boost/config/no_tr1</pElem>
+            <pElem>/usr/include/boost/config/stdlib</pElem>
+            <pElem>/usr/include/boost/config/platform</pElem>
+            <pElem>/usr/include/boost/regex/config</pElem>
+            <pElem>/usr/include/boost/exception/detail</pElem>
+            <pElem>/usr/include/boost/utility</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
+            <pElem>/usr/include/boost/preprocessor</pElem>
+            <pElem>/usr/include/boost/preprocessor/config</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
+            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
+            <pElem>/usr/include/boost/preprocessor/control</pElem>
+            <pElem>/usr/include/boost/preprocessor/logical</pElem>
+            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
+            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
+            <pElem>/usr/include/boost/preprocessor/debug</pElem>
+            <pElem>/usr/include/boost/preprocessor/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
+            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
+            <pElem>/usr/include/boost/mpl/limits</pElem>
+            <pElem>/usr/include/boost/preprocessor/list</pElem>
+            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
+            <pElem>/usr/include/boost/preprocessor/array</pElem>
+            <pElem>/usr/include/boost/type_traits</pElem>
+            <pElem>/usr/include/boost/functional</pElem>
+            <pElem>/usr/include/boost/functional/hash</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>__GNUC_STDC_INLINE__=1</Elem>
+            <Elem>__GXX_EXPERIMENTAL_CXX0X__=1</Elem>
+            <Elem>__PIC__=2</Elem>
+            <Elem>__REGISTER_PREFIX__=</Elem>
+            <Elem>__STRICT_ANSI__=1</Elem>
+            <Elem>__USER_LABEL_PREFIX__=</Elem>
+            <Elem>__cplusplus=201103L</Elem>
+            <Elem>__pic__=2</Elem>
+            <Elem>gafw_tools_EXPORTS=1</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="code/CPPParameters/ParameterRegistry.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <item path="code/CPPParameters/SimpleValue.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="0">
+          <incDir>
+            <pElem>/usr/include/boost/config</pElem>
+            <pElem>/usr/include/boost/mpl/aux_</pElem>
+            <pElem>/usr/include/boost/mpl</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/preprocessed/gcc</pElem>
+            <pElem>/usr/include/boost/exception</pElem>
+            <pElem>/usr/include/boost/type_traits/detail</pElem>
+            <pElem>/usr/include/boost</pElem>
+            <pElem>/usr/include/boost/detail</pElem>
+            <pElem>/usr/include/boost/numeric/conversion/detail</pElem>
+            <pElem>/usr/include/boost/numeric/conversion</pElem>
+            <pElem>/usr/include/boost/math/tools</pElem>
+            <pElem>/usr/include/boost/math/policies</pElem>
+            <pElem>/usr/include/boost/iterator/detail</pElem>
+            <pElem>/usr/include/boost/range</pElem>
+            <pElem>/usr/include/boost/range/detail</pElem>
+            <pElem>/usr/include/boost/concept/detail</pElem>
+            <pElem>/usr/include/boost/container</pElem>
+            <pElem>/usr/include/boost/config/compiler</pElem>
+            <pElem>/usr/include/boost/config/no_tr1</pElem>
+            <pElem>/usr/include/boost/config/stdlib</pElem>
+            <pElem>/usr/include/boost/config/platform</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/config</pElem>
+            <pElem>/usr/include/boost/preprocessor</pElem>
+            <pElem>/usr/include/boost/preprocessor/config</pElem>
+            <pElem>/usr/include/boost/mpl/aux_/preprocessor</pElem>
+            <pElem>/usr/include/boost/preprocessor/punctuation</pElem>
+            <pElem>/usr/include/boost/preprocessor/control</pElem>
+            <pElem>/usr/include/boost/preprocessor/logical</pElem>
+            <pElem>/usr/include/boost/preprocessor/facilities</pElem>
+            <pElem>/usr/include/boost/preprocessor/repetition</pElem>
+            <pElem>/usr/include/boost/preprocessor/debug</pElem>
+            <pElem>/usr/include/boost/preprocessor/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/tuple</pElem>
+            <pElem>/usr/include/boost/preprocessor/arithmetic</pElem>
+            <pElem>/usr/include/boost/mpl/limits</pElem>
+            <pElem>/usr/include/boost/preprocessor/list</pElem>
+            <pElem>/usr/include/boost/preprocessor/list/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/control/detail</pElem>
+            <pElem>/usr/include/boost/preprocessor/variadic</pElem>
+            <pElem>/usr/include/boost/exception/detail</pElem>
+            <pElem>/usr/include/boost/type_traits</pElem>
+            <pElem>/usr/include/boost/utility</pElem>
+            <pElem>/usr/include/boost/functional</pElem>
+            <pElem>/usr/include/boost/functional/hash</pElem>
+            <pElem>/usr/include/boost/preprocessor/array</pElem>
+            <pElem>/usr/include/boost/numeric/conversion/detail/preprocessed</pElem>
+            <pElem>/usr/include/boost/math/special_functions</pElem>
+            <pElem>/usr/include/boost/math/special_functions/detail</pElem>
+            <pElem>/usr/include/boost/mpl/list</pElem>
+            <pElem>/usr/include/boost/mpl/list/aux_</pElem>
+            <pElem>/usr/include/boost/mpl/list/aux_/preprocessed/plain</pElem>
+            <pElem>/usr/include/boost/mpl/vector</pElem>
+            <pElem>/usr/include/boost/mpl/vector/aux_</pElem>
+            <pElem>/usr/include/boost/mpl/vector/aux_/preprocessed/typeof_based</pElem>
+            <pElem>/usr/include/boost/iterator</pElem>
+            <pElem>/usr/include/boost/range/algorithm</pElem>
+            <pElem>/usr/include/boost/concept</pElem>
+            <pElem>/usr/include/boost/preprocessor/seq</pElem>
+            <pElem>/usr/include/boost/preprocessor/repetition/detail</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>__GNUC_STDC_INLINE__=1</Elem>
+            <Elem>__GXX_EXPERIMENTAL_CXX0X__=1</Elem>
+            <Elem>__PIC__=2</Elem>
+            <Elem>__REGISTER_PREFIX__=</Elem>
+            <Elem>__STRICT_ANSI__=1</Elem>
+            <Elem>__USER_LABEL_PREFIX__=</Elem>
+            <Elem>__cplusplus=201103L</Elem>
+            <Elem>__pic__=2</Elem>
+            <Elem>gafw_tools_EXPORTS=1</Elem>
+          </preprocessorList>
+        </ccTool>
+      </item>
+      <item path="code/CPPParameters/test.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool flags="1">
+        </ccTool>
+      </item>
+      <folder path="0/code">
+        <ccTool>
+          <incDir>
+            <pElem>code/CPPParameters</pElem>
+            <pElem>build/code</pElem>
+          </incDir>
+          <preprocessorList>
+            <Elem>gafw_tools_EXPORTS</Elem>
           </preprocessorList>
         </ccTool>
       </folder>

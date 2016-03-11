@@ -10,5 +10,5 @@ target_link_libraries(gafw-tools ${Boost_LIBRARIES})
 install(TARGETS gafw-tools LIBRARY DESTINATION lib)
 install(FILES ${HeaderFiles} DESTINATION "include/CPPParameters")
 
-add_executable(testing ${CppSources} )
-target_link_libraries(testing gafw-tools ${Boost_LIBRARIES}) 
+#add_executable(testing ${CppSources} )
+#target_link_libraries(testing gafw-tools ${Boost_LIBRARIES}) 

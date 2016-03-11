@@ -28,21 +28,43 @@ void CPPParams::setParameter(const std::string &name, const Value &value,const s
 {
     this->registry.setParameter(name,value,comment);
 }
-void CPPParams::setParameter(const std::string &name, std::string &value,const std::string comment)
+void CPPParams::setParameter(const char * name, const Value &value,const char * comment)
+{
+    this->registry.setParameter(std::string(name),value,std::string(comment));
+}
+
+void CPPParams::setParameter(const std::string &name, const std::string &value,const std::string comment)
 {
     this->registry.setParameter(name,value,comment);
 }
+void CPPParams::setParameter(const  char *name, const char *value,const char * comment)
+{
+    this->registry.setParameter(std::string(name),std::string(value),std::string(comment));
+}
+
 void CPPParams::setComment(const std::string &name,const std::string & comment)
 {
     this->registry.setComment(name,comment);
+}
+void CPPParams::setComment(const char *name,const char * comment)
+{
+    this->registry.setComment(std::string(name),std::string(comment));
 }
 std::string CPPParams::getComment(const std::string &name)
 {
     return this->getComment(name);
 }
+std::string CPPParams::getComment(const  char *name)
+{
+    return this->getComment(std::string(name));
+}
 Parameter& CPPParams::getParameter(const std::string & name)
 {
     return this->registry.getParameter(name);
+}
+Parameter& CPPParams::getParameter(const char * name)
+{
+    return this->registry.getParameter(std::string(name));
 }
 void CPPParams::freezeParameters()
 {
@@ -59,6 +81,18 @@ void CPPParams::freezeParameterAndChildren(const std::string &name)
 void CPPParams::unfreezeParameterAndChildren(const std::string &name)
 {
     this->registry.unfreezeParametersAndChild(name);
+}
+void CPPParams::freezeParameterAndChildren(const  char *name)
+{
+    this->registry.freezeParameterAndChilds(std::string(name));
+}
+void CPPParams::unfreezeParameterAndChildren(const  char *name)
+{
+    this->registry.unfreezeParametersAndChild(std::string(name));
+}
+void CPPParams::loadFromFile(const char * fileName)
+{
+    this->loadFromFile(std::string(fileName));
 }
 void CPPParams::loadFromFile(const std::string &fileName)
 {
@@ -162,6 +196,10 @@ std::pair<std::string,std::string> CPPParams::translateLine(const std::string& l
 bool CPPParams::isParameterSet(const std::string &name)
 {
     return this->registry.isParameterSet(name);
+}
+bool CPPParams::isParameterSet(const char *name)
+{
+    return this->registry.isParameterSet(std::string(name));
 }
 
 void CPPParams::getParameterData(std::vector<ParameterData> &tofill)
