@@ -113,6 +113,12 @@ namespace GAFW {  namespace Tools { namespace CPPParameters {
         if (sva==NULL) throw std::exception();
         this->myValue=sva->myValue;
     }
+    template <>
+    void SimpleValue<bool>::setFromString(const std::string &value);
+    template <>
+    std::string SimpleValue<bool>::toString();
+    
+    
     
     
    

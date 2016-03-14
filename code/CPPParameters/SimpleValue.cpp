@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 #include "SimpleValue.h"
+#include <boost/algorithm/string/case_conv.hpp>
 using namespace GAFW::Tools::CPPParameters;
 template <>
 const char * SimpleValue<bool>::myType="Boolean";
@@ -30,4 +31,35 @@ void SimpleValue<std::string>::getValue(Value &v)
 {
      v.setFromString(this->myValue);
 }
+template <>
+void SimpleValue<bool>::setFromString(const std::string &value)
+{
+    std::stringstream ss;
+    for (int x=0;x<value.size();x++)
+    {
+        ss<<(char)tolower(value[x]);
+    }
+    std::string v=ss.str();
+    if ((v=="0")||(v=="false"))
+    {
+        this->myValue=false;
+    }
+    else if (((v=="1")||(v=="true")))
+    {
+        this->myValue=true;
+    }
+    else
+    {
+        throw std::exception();
+    }
+        
+}
+template <>
+std::string SimpleValue<bool>::toString()
+{
+    if (this->myValue) return std::string("true");
+    else return std::string("false");
+    
+}
+    
     

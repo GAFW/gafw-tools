@@ -17,31 +17,20 @@
 #include "CPPParams.h"
 #include "SimpleValue.h"
 #include "boost/regex.hpp"
+#include "ListValue.h"
+#include "TimeQuantity.h"
+#include <sstream>
 using namespace std;
 using namespace GAFW::Tools::CPPParameters;
 /*
  * 
  */
-int main_deavctive(int argc, char** argv) {
-
-        
+int __main(int argc, char** argv) 
+{
+    TimeQuantity a(60);
+    a.changeUnits("m");
+    cout << a.toString()<<endl;
     
     
-    CPPParams params;
-    params.loadFromFile(std::string("//tmp//a"));
-    SimpleValue<bool> b(false);
-    params.getParameter("test1").getValue(b);
-    cout << b.get()<<endl;
-    params.getParameter("testing.test2").getValue(b);
-    cout << b.get()<<endl;
-    std::vector<ParameterData> data;
-    params.setComment("test1", "I am a comment");
-    params.getParameterData(data);
-    
-    for (int x=0;x<data.size();x++)
-    {
-        cout << data[x].name << " " << data[x].type << " " << data[x].value << " "  << data[x].comment<< endl;
-    }
-    return 0;
 }
 
