@@ -30,7 +30,8 @@ public:
     virtual ~Parameter();
     ParameterName getParameterName();
     void getValue(Value &value);
-    std::string getValue() const;
+    std::string getStringValue() const;
+    Value & getValue() const;
     std::string getValueType() const;
     void setValue(const Value &value);
     void setValue(std::string value);

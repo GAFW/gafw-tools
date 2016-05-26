@@ -107,10 +107,15 @@ bool Parameter::isValueSet()
 {
     return bool(this->value);
 }
-std::string Parameter::getValue() const
+std::string Parameter::getStringValue() const
 {
     if (this->value!=NULL)
         return this->value->toString();
    else
        throw std::exception();
+}
+Value & Parameter::getValue() const
+{
+    if (this->value!=NULL)
+        return *this->value;
 }

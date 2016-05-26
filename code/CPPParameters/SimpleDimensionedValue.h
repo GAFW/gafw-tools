@@ -18,7 +18,7 @@
 #include <boost/regex.hpp>
 #include <boost/lexical_cast.hpp>
 namespace GAFW { namespace Tools { namespace CPPParameters {
-    template <class Type,bool isInteger,bool caseSensitive>
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
     class SimpleDimensionedValue: public Value
     {
         private:
@@ -36,7 +36,7 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
             const std::string valueType;
             const std::vector<struct Conv> conversion;
             Type getUnitRelValue(const std::string &value);
-            void compareConversions(SimpleDimensionedValue<Type,isInteger,caseSensitive>&);
+            void compareConversions(SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>&);
         public:
             SimpleDimensionedValue();
             SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion);
@@ -64,58 +64,58 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
             virtual void toStringShowUnits(bool show=true);
 
     };
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue():valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue():valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
     {
         showUnits=true;
         this->unit="";
         this->magnitude=0;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion):valueType(valueType),conversion(conversion)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion):valueType(valueType),conversion(conversion)
     {
         showUnits=true;
         this->unit="";
         this->magnitude=0;
     
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue(const Type &magnitude,const std::string &unit):valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue(const Type &magnitude,const std::string &unit):valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
     {
         showUnits=true;
         this->set(magnitude,unit);
     }
     
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion,const Type &magnitude,const std::string &unit):valueType(valueType),conversion(conversion)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion,const Type &magnitude,const std::string &unit):valueType(valueType),conversion(conversion)
     {
         showUnits=true;
         this->set(magnitude,unit);
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue(const std::string &value):valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue(const std::string &value):valueType("Simple Dimensioned Value"),conversion(std::vector<struct Conv>())
     {
         showUnits=true;
         this->setFromString(value);
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion,const std::string &value):valueType(valueType),conversion(conversion)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::SimpleDimensionedValue(const std::string &valueType,const std::vector<struct Conv> &conversion,const std::string &value):valueType(valueType),conversion(conversion)
     {
         showUnits=true;
         this->setFromString(value);
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    SimpleDimensionedValue<Type,isInteger,caseSensitive>::~SimpleDimensionedValue()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::~SimpleDimensionedValue()
     {
         
     }       
-    template <class Type,bool isInteger,bool caseSensitive>
-    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive>::getType()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getType()
     {
         return valueType;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::setFromString(const std::string &value)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::setFromString(const std::string &value)
     {
         boost::regex base10integer_withexponent("^([\\+-]?[[:digit:]]+)e([\\+-]?[[:digit:]]+)[[:space:]]*([^[:space:]]*)$");
         boost::regex base10integer_noexponenet("^([\\+-]?[[:digit:]]+)[[:space:]]*([^[:space:]]*)$");
@@ -221,28 +221,28 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         
         
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive>::toString()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::toString()
     {
         std::stringstream ss;
         ss<<this->magnitude;
         if (this->showUnits) ss<<unit;
         return ss.str();
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    Value * SimpleDimensionedValue<Type,isInteger,caseSensitive>::clone() const
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    Value * SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::clone() const
     {
-        return new SimpleDimensionedValue<Type,isInteger,caseSensitive>(magnitude,unit);
+        return new DerivedClass(magnitude,unit);
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::deleteClone()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::deleteClone()
     {
         delete this;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::getValue(Value &v)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getValue(Value &v)
     {
-        SimpleDimensionedValue<Type,isInteger,caseSensitive> *ret=dynamic_cast<SimpleDimensionedValue<Type,isInteger,caseSensitive> *>(const_cast<Value *>(&v));
+        SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass> *ret=dynamic_cast<SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass> *>(const_cast<Value *>(&v));
         if (ret==NULL) throw std::exception();
         //Check if this is same units
         if (ret->conversion.size()!=0)
@@ -252,10 +252,10 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         ret->unit=this->unit;
         ret->magnitude=this->magnitude;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::setValue(const Value &v)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::setValue(const Value &v)
     {
-        SimpleDimensionedValue<Type,isInteger,caseSensitive> *ret=dynamic_cast<SimpleDimensionedValue<Type,isInteger,caseSensitive> *>(const_cast<Value *>(&v));
+        SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass> *ret=dynamic_cast<SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass> *>(const_cast<Value *>(&v));
         if (ret==NULL) throw std::exception();
         //Check if this is same units
         if (this->conversion.size()!=0)
@@ -265,18 +265,18 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         this->unit=ret->unit;
         this->magnitude=ret->magnitude;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    Type SimpleDimensionedValue<Type,isInteger,caseSensitive>::getMagnitude()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    Type SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getMagnitude()
     {
         return this->magnitude;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive>::getUnits()
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    std::string SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getUnits()
     {
         return this->unit;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    Type SimpleDimensionedValue<Type,isInteger,caseSensitive>::getMagnitude(const std::string &units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    Type SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getMagnitude(const std::string &units)
     {
         Type myRel=this->getUnitRelValue(this->unit);
         Type reqRel=this->getUnitRelValue(units);
@@ -293,8 +293,8 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         }
             
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::set(Type mag,const std::string &p_units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::set(Type mag,const std::string &p_units)
     {
         std::string proposed_unit=p_units;
         if (this->conversion.size()!=0)
@@ -307,35 +307,35 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         this->unit=proposed_unit;
 
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    Type SimpleDimensionedValue<Type,isInteger,caseSensitive>::getMagnitude(const char * units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    Type SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getMagnitude(const char * units)
     {
         return this->getMagnitude(std::string(units));
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::set(Type magnitude,const char *units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::set(Type magnitude,const char *units)
     {
         this->set(magnitude, std::string(units));
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::changeUnits(const std::string &units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::changeUnits(const std::string &units)
     {
         Type newMag=this->getMagnitude(units);
         this->magnitude=newMag;
         this->unit=units;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::changeUnits(const char * units)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::changeUnits(const char * units)
     {
         this->changeUnits(std::string(units));
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::toStringShowUnits(bool show)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::toStringShowUnits(bool show)
     {
         this->showUnits=show;
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    Type SimpleDimensionedValue<Type,isInteger,caseSensitive>::getUnitRelValue(const std::string &value)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    Type SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::getUnitRelValue(const std::string &value)
     {
         std::string myValue=value;
         if (!caseSensitive)
@@ -365,8 +365,8 @@ namespace GAFW { namespace Tools { namespace CPPParameters {
         }        
         throw std::exception();
     }
-    template <class Type,bool isInteger,bool caseSensitive>
-    void SimpleDimensionedValue<Type,isInteger,caseSensitive>::compareConversions(SimpleDimensionedValue<Type,isInteger,caseSensitive>& toCheck)
+    template <class Type,bool isInteger,bool caseSensitive,class DerivedClass>
+    void SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>::compareConversions(SimpleDimensionedValue<Type,isInteger,caseSensitive,DerivedClass>& toCheck)
     {
         if (toCheck.conversion.size()!=this->conversion.size()) throw std::exception();
         for (int x=0;x<toCheck.conversion.size();x++)

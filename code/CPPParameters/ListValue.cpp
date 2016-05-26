@@ -97,7 +97,7 @@ int ListValue::getValue()
 }
 void ListValue::setValue(int _choice)
 {
-    if (choice<-1) throw std::exception();
-    if (choice>=regexList.size()) throw std::exception();
+    if (_choice<-1) throw std::exception();
+    if (_choice>=regexList.size()) throw std::exception();
     this->choice=_choice;
 }

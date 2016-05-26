@@ -170,7 +170,7 @@ void CPPParams::loadFromArgs(int argc, char** argv)
         else
         {
             //Normal translation
-            std::pair<std::string,std::string> p=this->translateLine(argv[1]);
+            std::pair<std::string,std::string> p=this->translateLine(argv[x]); 
             this->setParameter(p.first,p.second);
         }
     }

@@ -18,19 +18,23 @@
 #include "SimpleValue.h"
 #include "boost/regex.hpp"
 #include "ListValue.h"
-#include "TimeQuantity.h"
+#include "AngleQuantity.h"
+#include "VectorValue.h"
 #include <sstream>
 using namespace std;
 using namespace GAFW::Tools::CPPParameters;
 /*
  * 
  */
-int __main(int argc, char** argv) 
+int notmain(int argc, char** argv) 
 {
-    TimeQuantity a(60);
-    a.changeUnits("m");
+    VectorValue<AngleQuantity > a;
+    a.setFromString("1arcsec,2arcsec");
+    for (int x=0;x<a.getVectorSize();x++)
+    {
+        a.getElementNo(x).changeUnits("rad");
+        cout << x<< endl;
+    }
     cout << a.toString()<<endl;
-    
-    
 }
 

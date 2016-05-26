@@ -11,17 +11,17 @@
  * Created on 14 March 2016, 21:16
  */
 
-#ifndef __TIMEQUANTITY_H__
-#define __TIMEQUANTITY_H__
+#ifndef __FREQUENCYQUANTITY_H__
+#define __FREQUENCYQUANTITY_H__
 #include "SimpleDimensionedValue.h"
 namespace GAFW { namespace Tools { namespace CPPParameters {
-    class TimeQuantity :public SimpleDimensionedValue<double,false,false,TimeQuantity>{
+    class FrequencyQuantity :public SimpleDimensionedValue<double,false,true,FrequencyQuantity>{
     protected:
-         std::vector<SimpleDimensionedValue<double,false,false,TimeQuantity>::Conv> createConversion() const;
+         std::vector<SimpleDimensionedValue<double,false,true,FrequencyQuantity>::Conv> createConversion() const;
     public:
-        TimeQuantity();
-        TimeQuantity(const double &magnitude,const std::string &unit=std::string(""));
-        virtual ~TimeQuantity();
+        FrequencyQuantity();
+        FrequencyQuantity(const double &magnitude,const std::string &unit=std::string(""));
+        virtual ~FrequencyQuantity();
        
     };
 }}}

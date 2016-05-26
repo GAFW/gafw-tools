@@ -179,7 +179,7 @@ void ParameterRegistry::dumpMap(const std::string& parent,std::vector<ParameterD
             data.comment=x->second.comment;
             //below code can throw exception
             data.type=x->second.par.getValueType();
-            data.value=x->second.par.getValue();
+            data.value=x->second.par.getStringValue();
             tofill.push_back(data);
         } catch (const std::exception &)
         {}

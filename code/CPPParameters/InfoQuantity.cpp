@@ -14,9 +14,9 @@
 #include "InfoQuantity.h"
 using namespace GAFW::Tools::CPPParameters;
 
-std::vector<SimpleDimensionedValue<double,false,false>::Conv> InfoQuantity::createConversion() const
+std::vector<SimpleDimensionedValue<double,false,false,InfoQuantity>::Conv> InfoQuantity::createConversion() const
 {
-    const SimpleDimensionedValue<double,false,false>::Conv myConv[]={ 
+    const SimpleDimensionedValue<double,false,false,InfoQuantity>::Conv myConv[]={ 
         {1.0, "bytes"} , {1.0,"b"}, {1.0, "byte"} ,
         {1e3, "kilobytes"}, {1e3,"kB"},{1e3, "kilobyte"},
         {1e6, "megabytes"}, {1e6,"MB"},{1e6, "megabyte"},
@@ -40,19 +40,19 @@ std::vector<SimpleDimensionedValue<double,false,false>::Conv> InfoQuantity::crea
 
     const int noOfConvs=51;
     
-    std::vector<SimpleDimensionedValue<double,false,false>::Conv> c;
+    std::vector<SimpleDimensionedValue<double,false,false,InfoQuantity>::Conv> c;
     for (int x=0;x<noOfConvs;x++) c.push_back(myConv[x]);
     return c;
 }
 
-InfoQuantity::InfoQuantity():SimpleDimensionedValue<double,false,false>("Information Units",this->createConversion())
+InfoQuantity::InfoQuantity():SimpleDimensionedValue<double,false,false,InfoQuantity>("Information Units",this->createConversion())
 {
     
 }
 
-InfoQuantity::InfoQuantity(const double &magnitude,const std::string &unit):SimpleDimensionedValue<double,false,false>("Information Units",this->createConversion(),magnitude,unit)
+InfoQuantity::InfoQuantity(const double &magnitude,const std::string &unit):SimpleDimensionedValue<double,false,false,InfoQuantity>("Information Units",this->createConversion(),magnitude,unit)
 {
     
 }
-        
+
 

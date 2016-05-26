@@ -13,11 +13,12 @@
 
 #ifndef __INFOQUANTITY_H__
 #define __INFOQUANTITY_H__
+
 #include "SimpleDimensionedValue.h"
 namespace GAFW { namespace Tools { namespace CPPParameters {
-    class InfoQuantity :public SimpleDimensionedValue<double,false,false>
+    class InfoQuantity :public SimpleDimensionedValue<double,false,false,InfoQuantity>
     {
-        std::vector<SimpleDimensionedValue<double,false,false>::Conv> createConversion() const;
+        std::vector<SimpleDimensionedValue<double,false,false,InfoQuantity>::Conv> createConversion() const;
     public:
         InfoQuantity();
         InfoQuantity(const double &magnitude,const std::string &unit=std::string(""));
