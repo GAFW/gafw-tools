@@ -105,50 +105,68 @@ void CPPParams::loadFromFile(const std::string &fileName)
     std::ifstream in;
     in.open(fileName.c_str());
     if (!in)
-        throw std::exception();
+    {
+        std::stringstream ss;
+        ss<<"Unable to open parameters file: "<< fileName; 
+        throw GAFWToolsException(ss.str());
+    
+    }
     std::string line;
+    int lineNumber=-1;
     do
     {
-        getline(in,line);
-       
-        //is this a comment?? or just white space
-        if (regex_match(line,reg_comment)||regex_match(line,onlyspace))
-        {
-            continue;
-        }
-        //Check general format
-        boost::match_results<std::string::const_iterator> what;
-        if (regex_match(line,what,change_parent))
-        {
-            if (what[1]==std::string(""))
+        lineNumber++;
+        try { 
+            getline(in,line);
+
+            //is this a comment?? or just white space
+            if (regex_match(line,reg_comment)||regex_match(line,onlyspace))
             {
-                parent="";
                 continue;
             }
-            else
+            //Check general format
+            boost::match_results<std::string::const_iterator> what;
+            if (regex_match(line,what,change_parent))
             {
-                ParameterName p(what[1]); //Checks proper format
-                parent=p.getFullName();
-            }
-        }
-        else
-        {
-            std::pair<std::string,std::string> r=this->translateLine(line);
-            if (r.first==".")
-            {
-                if (parent!="")
-                    this->setParameter(parent,r.second);
+                if (what[1]==std::string(""))
+                {
+                    parent="";
+                    continue;
+                }
                 else
-                    throw std::exception();
+                {
+                    ParameterName p(what[1]); //Checks proper format
+                    parent=p.getFullName();
+                }
             }
-            std::stringstream ss;
-            if (parent!="")
-                ss<< parent<< "."<< r.first;
             else
-                ss << r.first;
-            this->setParameter(ss.str(),r.second);
+            {
+                std::pair<std::string,std::string> r=this->translateLine(line);
+                if (r.first==".")
+                {
+                    if (parent!="")
+                        this->setParameter(parent,r.second);
+                    else
+                    {
+                        std::stringstream ss;
+                        ss<< "Parent has not been set in a previous line."<< std::endl;
+                        throw GAFWToolsException(ss.str())
+                    }
+                }
+                std::stringstream ss;
+                if (parent!="")
+                    ss<< parent<< "."<< r.first;
+                else
+                    ss << r.first;
+                this->setParameter(ss.str(),r.second);
+            }
         }
-        
+        catch (const std::exception &ex)
+        {
+            std::stringstream ss;
+            ss<< "Unable to parse line number "<< lineNumber<< " in properties file "<< fileName<<std::endl<< "Line Value is :"<<line;
+            throw GAFWToolsExceptionWithCause(ss.str(),&ex);
+        }
         
     } while(!in.eof());
     
@@ -159,19 +177,27 @@ void CPPParams::loadFromArgs(int argc, char** argv)
     for (int x=1;x<argc;x++)
     {
         //Args have special feature... if no = exist and begins with - then it is a boolean property
-        boost::regex bool_genformat("^-([^=]+)$");
-        boost::cmatch what;
-        if (boost::regex_match(argv[x],what,bool_genformat))
-        {
-            //Yep it is bool
-            std::string parName=std::string(what[1]);
-            this->setParameter(parName,SimpleValue<bool>(true));
+        try {
+            boost::regex bool_genformat("^-([^=]+)$");
+            boost::cmatch what;
+            if (boost::regex_match(argv[x],what,bool_genformat))
+            {
+                //Yep it is bool
+                std::string parName=std::string(what[1]);
+                this->setParameter(parName,SimpleValue<bool>(true));
+            }
+            else
+            {
+                //Normal translation
+                std::pair<std::string,std::string> p=this->translateLine(argv[x]); 
+                this->setParameter(p.first,p.second);
+            }
         }
-        else
+        catch (const std::exception &ex)
         {
-            //Normal translation
-            std::pair<std::string,std::string> p=this->translateLine(argv[x]); 
-            this->setParameter(p.first,p.second);
+            std::stringstream ss;
+            ss<< "Unable to parse runtime argument number "<< x<< std::endl<< "Argument Value is :"<<argv[x];
+            throw GAFWToolsExceptionWithCause(ss.str(),&ex);
         }
     }
 }
@@ -181,8 +207,10 @@ std::pair<std::string,std::string> CPPParams::translateLine(const std::string& l
     boost::regex prop_genformat("^[[:space:]]*([^[:space:]\\=]+)[[:space:]]*=[[:space:]]*([^[#!]*)[#!]?.*$");
     boost::match_results<std::string::const_iterator> what;
     if (!regex_search(line,what,prop_genformat))
-        throw std::exception();
-    //Remove any whitespace at the end of string for what[2]
+    {   
+        throw GAFWToolsException("Unable to parse.");
+    }
+        //Remove any whitespace at the end of string for what[2]
     boost::regex w_remove("^(.*[^[:space:]])[[:space:]]+$");
     boost::match_results<std::string::const_iterator> what2;
     std::pair<std::string,std::string> toReturn;

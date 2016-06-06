@@ -15,6 +15,7 @@
 #define __CPPPARAMS_H__
 #include "ParameterData.h"
 #include "ParameterRegistry.h"
+#include "common/CommonException.h"
 #include <utility>
 namespace GAFW { namespace Tools { namespace CPPParameters {
     
