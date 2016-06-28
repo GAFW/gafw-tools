@@ -204,7 +204,9 @@ void CPPParams::loadFromArgs(int argc, char** argv)
 
 std::pair<std::string,std::string> CPPParams::translateLine(const std::string& line)
 {
-    boost::regex prop_genformat("^[[:space:]]*([^[:space:]\\=]+)[[:space:]]*=[[:space:]]*([^[#!]*)[#!]?.*$");
+    //boost::regex prop_genformat("^[[:space:]]*([^[:space:]\\=]+)[[:space:]]*=[[:space:]]*([^[#!]*)[#!]?.*$");
+    boost::regex prop_genformat("^[[:space:]]*([^[:space:]\\=]+)[[:space:]]*=[[:space:]]*(.*)$");
+    
     boost::match_results<std::string::const_iterator> what;
     if (!regex_search(line,what,prop_genformat))
     {   
