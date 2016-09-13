@@ -37,7 +37,7 @@ std::vector<SimpleDimensionedValue<double,false,true,FrequencyQuantity>::Conv> F
         {1e15,"PHz"} , { 1e15,"petahertz"},
         {1e18,"EHz"} , { 1e18,"exahertz"},
         {1e21,"ZHz"} , { 1e21,"zettahertz"},
-        {1e24,"YHz"} , { 1e24,"	yottahertz"}
+        {1e24,"YHz"} , { 1e24,"yottahertz"}
     };
         
 
